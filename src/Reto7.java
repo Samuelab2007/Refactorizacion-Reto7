@@ -1,3 +1,7 @@
+/*
+Realizado por: Efrain Garcia Valencia(1001370984)
+               Samuel Acevedo Bustamante(1001016099)
+*/
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
