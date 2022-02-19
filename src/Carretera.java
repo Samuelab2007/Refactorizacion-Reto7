@@ -7,12 +7,12 @@ public class Carretera {
         return conjuntoVias;
     }
 
-    public void anhadirTramo(TramoVia tramo){
+    public void anhadirTramo(TramoVia tramo) {
         conjuntoVias.add(tramo);
     }
 
 
-    public float longitud(){
+    public float longitud() {
         float sumaLongitudes = 0;
 
         for (TramoVia elementoVia : conjuntoVias) {
@@ -20,49 +20,52 @@ public class Carretera {
         }
         return sumaLongitudes;
     }
-    public float area(){
+
+    public float area() {
         float sumaAreas = 0;
-        for(TramoVia seccionVia : conjuntoVias){
+        for (TramoVia seccionVia : conjuntoVias) {
             sumaAreas += seccionVia.area();
         }
         return sumaAreas;
     }
-    public double volumenTotal(){
+
+    public double volumenTotal() {
         double volumenTotalMaterial = 0;
-        for(TramoVia seccionVia : conjuntoVias){
+        for (TramoVia seccionVia : conjuntoVias) {
             volumenTotalMaterial += seccionVia.volumen();
         }
         return volumenTotalMaterial;
     }
-    public double volumenAsfaltado(){
+
+    public double volumenAsfaltado() {
         double volumenAsfalto = 0;
-        for(TramoVia asfaltado : conjuntoVias){
-            if(asfaltado instanceof TramoAsfaltado){    //Verifico la clase de mi objeto
+        for (TramoVia asfaltado : conjuntoVias) {
+            if (asfaltado instanceof TramoAsfaltado) {    //Verifico la clase de mi objeto
                 volumenAsfalto += asfaltado.volumen();
             }
         }
         return volumenAsfalto;
     }
-    public double volumenSinAsfaltar(){
+
+    public double volumenSinAsfaltar() {
         double volumenMaterial = 0;
-        for(TramoVia viaMaterialVariable : conjuntoVias){
-            if(viaMaterialVariable instanceof TramoSinAsfaltar){
+        for (TramoVia viaMaterialVariable : conjuntoVias) {
+            if (viaMaterialVariable instanceof TramoSinAsfaltar) {
                 volumenMaterial += viaMaterialVariable.volumen();
             }
         }
         return volumenMaterial;
     }
-    public boolean conectados(){
-        boolean estanConectados=false;
 
-        for(int i=0;i<conjuntoVias.size()-1;i++){
-            int j = i+1;
-            if((conjuntoVias.get(i).getxFinal() == conjuntoVias.get(j).getxInicial()) && conjuntoVias.get(i).getyFinal() == conjuntoVias.get(j).getyInicial()){
-                estanConectados = true;
-            }else{
+    public boolean conectados() {
+        for (int i = 0; i < conjuntoVias.size() - 1; i++) {
+            int j = i + 1;
+            boolean desconectadosEnX = (conjuntoVias.get(i).getxFinal() != conjuntoVias.get(j).getxInicial());
+            boolean desconectadosEnY = (conjuntoVias.get(i).getyFinal() != conjuntoVias.get(j).getyInicial());
+            if (desconectadosEnX || desconectadosEnY) {
                 return false;
             }
         }
-        return estanConectados;
+        return true;
     }
 }
