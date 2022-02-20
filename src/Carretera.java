@@ -12,7 +12,7 @@ public class Carretera {
     }
 
 
-    public float longitud() {
+    public float longitudTotalCarretera() {
         float sumaLongitudes = 0;
 
         for (TramoVia elementoVia : conjuntoVias) {
@@ -21,7 +21,7 @@ public class Carretera {
         return sumaLongitudes;
     }
 
-    public float area() {
+    public float areaTotalCarretera(){
         float sumaAreas = 0;
         for (TramoVia seccionVia : conjuntoVias) {
             sumaAreas += seccionVia.area();

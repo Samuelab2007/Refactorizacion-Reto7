@@ -56,10 +56,10 @@ public class Reto7 {
                 }
                 break;
             case 2:
-                System.out.println("Longitud: "+carretera.longitud());
+                System.out.println("Longitud: "+carretera.longitudTotalCarretera());
                 break;
             case 3:
-                System.out.println("Area: "+carretera.area());
+                System.out.println("Area: "+carretera.areaTotalCarretera());
                 break;
             case 4:
                 System.out.println("Volumen total: "+carretera.volumenTotal());
